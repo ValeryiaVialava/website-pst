@@ -1,25 +1,48 @@
 body, html {
+	/* обнуляем отступы: */
+	margin: 0;
+	padding: 0;
+	/* устанавливаем высоту для элементов body и html,
+	чтобы они занимали всю высоту окна браузера:*/
+	height: 100%;
+
 	background: #fff;
-    margin:0;
-	overflow-x: hidden; /* Предотвращает горизонтальную прокрутку */
+	/*overflow-x: hidden; !* Предотвращает горизонтальную прокрутку *!*/
 }
 
-.background-block{
-    max-width: 1440px;
-    max-height: 900px;
+.background{
+		height: 100vh; /* viewport height */
+		display: flex;
+
+		/* выравнивание контента по главной оси (горизонтальной): */
+		justify-content: center;
+
+		/* выравнивание элементов по вертикальной оси: */
+		align-items: center;
 }
 
-.background-block img {
-    width: 100%;
-    max-height: 900px;
-    object-fit: cover;
-    object-position: bottom;
+#header-background{
+	background: linear-gradient(to bottom, #8C99A1, #373F44);
 }
 
-.logo {
-    max-width: 100%;
-    padding: 8px;
-    margin: 0 auto; /* Центрирование элементов внутри родителя */
+#section1{
+	background: linear-gradient(to bottom, #373F44 , #8C99A1);
 }
+
+#section2{
+	background: linear-gradient(to bottom, #8C99A1, #373F44);
+}
+
+
+header h1 {
+	font-size: 40px;
+	color: white;
+	font-family: Arial, sans-serif;
+}
+
+
+
+
+
 
 
