@@ -1,17 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+	font-family: 'BOWLER';
+	src: url('../fonts/BOWLER.otf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
 
-*, *:before, *:after {
+@font-face {
+	font-family: 'ZektonRg-Regular';
+	src: url('../fonts/ZektonRg-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+*, *::before, *::after {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 }
 
+div{
+	box-sizing: border-box;
+}
+
 body{
-	font-family: "Montserrat", sans-serif;
+	color: #d3d3d3;
+	font-family: "ZektonRg-Regular", sans-serif;
+}
+
+h1{
+	font-family: "BOWLER", sans-serif;
+	font-size: 70px;
+}
+
+h2{
+	font-size: 20px;
+}
+
+h3{
+	font-size: 16px;
+}
+
+span {
+	display: block;
 }
 
 .logo{
 	width:70px;
+	display: flex;
+	justify-content: start; /*картинка прилегает к краю контейнера*/
 }
 
 header{
@@ -25,9 +62,8 @@ header{
 }
 
 header nav {
-	max-width: 1400px;
-	margin: 0 auto;
-	padding: 0 2rem;
+	width: 100%;
+	padding: 0 32px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -41,20 +77,33 @@ header ul{
 
 header ul a{
 	text-decoration: none;
+	font-family: "Montserrat", sans-serif;
 	color: #fff;
-	padding: 0 1.5rem;
+	padding: 0 24px; /* сверху и снизу 0, справа и слева 1.5rem*/
 	font-weight:400;
 	font-size: 0.9rem;
 }
 
-.search a {
-	font-size: 1.05rem;
-	padding: 0 3rem;
+header ul a:hover {
+	text-shadow: 0 0 10px #fff;
+}
 
+.sing-in {
+	padding-bottom: 1px;
+}
+
+.search {
+	font-size: 1.05rem;
+	margin-right: 25px;
+	padding: 0 48px 0 24px;
 }
 
 .hamburger{
-	padding-left: 1.5rem;
+	position: sticky;
+	top:6px;
+	padding: 0 20px;
+	display: flex;
+	justify-content: flex-end; /* Элементы выравниваются по левому краю */
 }
 
 .hamburger a{
@@ -78,8 +127,8 @@ header ul a{
 	border-radius: 2px;
 }
 
-.hamburger .bar:before,
-.hamburger .bar:after{
+.hamburger .bar::before,
+.hamburger .bar::after{
 	content: "";
 	position: absolute;
 	left: 50%;
@@ -90,46 +139,167 @@ header ul a{
 	border-radius: 2px;
 }
 
-.hamburger .bar:before{
+.hamburger .bar::before{
 	top: -4.5px;
 }
 
-.hamburger .bar:after{
+.hamburger .bar::after{
 	top: 4.5px;
 }
 
 main{
 	position: relative;
 	background: linear-gradient(to bottom, #8C99A1, #373F44);
-	height: 100vh;
+	height: 818px;
 	width: 100vw;
-	overflow: hidden;
 }
 
-.bg-img{
+main img{
+	/*маштабируется как экран:*/
+	/*max-width: 100%;*/
+	/*height: auto;*/
+	/*не маштабируется*/
 	position: absolute;
-	width: 1440px;
 	top: 45%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
 
-.background{
-	height: 100vh; /* viewport height */
+.header-text {
+	justify-content: start;
+	margin-top: 60px;
+	padding-left: 32px;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.header-text p{
+	font-family: "BOWLER", sans-serif;
+	padding-left:4px;
+	padding-top: 10px;
+	display: block;
+}
+
+.wrapper-arrow{
+	height: 100%;
+}
+
+.arrow {
+	position: absolute;
+	bottom: 50px;
+	left: calc(50% - 15px);
+	opacity: 0;
+	animation: ArrowDown 3s infinite;
+}
+
+.arrow img{
+	width: 30px;
+}
+
+@keyframes ArrowDown {
+
+	0%{
+		bottom: 50px;
+		opacity: 0.6;
+	}
+ 	100%{
+		bottom: 30px;
+		opacity: 0;
+	}
+
+}
+
+.wrapper-little-section {
+	z-index: 2;
+	padding: 30px 0 120px;
+	background: linear-gradient(to bottom, #373F44, #8C99A1);
+}
+
+.container-little-section{
+	width: 1170px;
+	height: 290px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.about-firma {
 	display: flex;
-	/* выравнивание контента по главной оси (горизонтальной): */
-	justify-content: center;
-	/* выравнивание элементов по вертикальной оси: */
-	align-items: center;
+	justify-content: space-between;
+	margin-top: 50px;
+	text-align: center;
+}
+.about-firma h3{
+	padding-top: 10px;
+}
+.about-firma img{
+	padding: 30px  30px;
+	transition: box-shadow 2.0s ease-in-out; /* Плавный переход для тени */
 }
 
-
-#section1-background{
-	background: linear-gradient(to bottom, #373F44 , #8C99A1);
+.about-firma img:hover {
+	-webkit-filter: drop-shadow(10px 10px 10px rgb(128, 140, 148));
+	filter: drop-shadow(0 0 10px rgb(128, 140, 148)); /* Равномерное свечение по всему контуру */
 }
 
-#section2-background{
+.about-firma div{
+	z-index: 3;
+	height:500px;
+	position: relative;
+}
+
+.materials{
+	margin-top: 40px;
+}
+
+.text-about::after{
+	position: absolute;
+	padding-top: 30px;
+	left: 0;
+	font-size:16px;
+	border-radius: 5px;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.text-about:hover::after {
+	opacity: 1;
+	visibility: visible;
+}
+
+.materials::after {
+	content: 'мы используем только лучшие оптоволоконные кабели и современное оборудование для гарантии надежности и долговечности ваших соединений.';
+	width: 227px;
+}
+
+.installation::after {
+	content: 'наши специалисты обеспечивают профессиональную прокладку кабелей, минимизируя риски и гарантируя защиту от внешних воздействий.';
+	width: 292px;
+}
+
+.consultation::after {
+	content: 'мы предлагаем персонализированное консультирование, где наши эксперты помогут выбрать оптимальный план и ответят на все ваши вопросы.';
+	width: 285px;
+}
+
+.wrapper-choice-section {
+	z-index: 1;
+	position: relative;
 	background: linear-gradient(to bottom, #8C99A1, #373F44);
+	height: 800px;
+	width: 100vw;
+}
+
+.wrapper-choice-section img {
+	/*маштабируется как экран:*/
+	/*max-width: 100%;*/
+	/*height: auto;*/
+	/*не маштабируется*/
+	/*position: absolute;*/
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 
@@ -137,4 +307,9 @@ main{
 
 
 
-
+.wrapper-inf-section{
+	background: #373F44;
+	height: 300px;
+	width: 100vw;
+	position: relative;
+}
